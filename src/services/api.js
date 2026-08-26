@@ -107,4 +107,28 @@ export function deleteExam(id) {
     method: "DELETE",
   });
 }
+
+export function getExamQuestions(examId) {
+  return apiFetch(`/exams/${examId}/questions`);
+}
+
+export function createQuestion(examId, questionData) {
+  return apiFetch(`/exams/${examId}/questions`, {
+    method: "POST",
+    body: JSON.stringify(questionData),
+  });
+}
+
+export function updateQuestion(id, questionData) {
+  return apiFetch(`/questions/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(questionData),
+  });
+}
+
+export function deleteQuestion(id) {
+  return apiFetch(`/questions/${id}`, {
+    method: "DELETE",
+  });
+}
 export default apiFetch;
