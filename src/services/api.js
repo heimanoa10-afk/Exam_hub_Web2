@@ -55,4 +55,28 @@ export function deactivateStudent(id) {
     method: "DELETE",
   });
 }
+
+export function getCourses() {
+  return apiFetch("/courses");
+}
+
+export function createCourse(courseData) {
+  return apiFetch("/courses", {
+    method: "POST",
+    body: JSON.stringify(courseData),
+  });
+}
+
+export function updateCourse(id, courseData) {
+  return apiFetch(`/courses/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(courseData),
+  });
+}
+
+export function deleteCourse(id) {
+  return apiFetch(`/courses/${id}`, {
+    method: "DELETE",
+  });
+}
 export default apiFetch;
