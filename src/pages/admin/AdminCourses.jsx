@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCourses, createCourse, deleteCourse } from "../../services/api";
+import AdminNavbar from "../../components/AdminNavbar";
 
 export default function AdminCourses() {
   const [courses, setCourses] = useState([]);
@@ -49,8 +50,9 @@ export default function AdminCourses() {
     }
   }
 
-  return (
+    return (
     <div>
+      <AdminNavbar />
       <h1>Gestion des cours</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}

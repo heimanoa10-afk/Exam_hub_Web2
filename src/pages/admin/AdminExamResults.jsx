@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getExam, getExamResults } from "../../services/api";
-
+import AdminNavbar from "../../components/AdminNavbar";
 export default function AdminExamResults() {
   const { id } = useParams();
-
   const [exam, setExam] = useState(null);
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,8 +37,9 @@ export default function AdminExamResults() {
 
   if (loading) return <p>Chargement...</p>;
 
-  return (
+    return (
     <div>
+      <AdminNavbar />
       <h1>Résultats de l'examen : {exam?.title}</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}

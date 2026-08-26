@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getStudents, createStudent, deactivateStudent } from "../../services/api";
+import AdminNavbar from "../../components/AdminNavbar";
 
 export default function AdminStudents() {
   const [students, setStudents] = useState([]);
@@ -47,8 +48,9 @@ export default function AdminStudents() {
     }
   }
 
-  return (
+    return (
     <div>
+      <AdminNavbar />
       <h1>Gestion des étudiants</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -97,7 +99,11 @@ export default function AdminStudents() {
               <tr key={student.id}>
                 <td>{student.name}</td>
                 <td>{student.email}</td>
-                <td>{student.active ? "Actif" : "Désactivé"}</td>
+                <td>
+                  <span className={student.active ? "badge badge-success" : "badge badge-error"}>
+                    {student.active ? "Actif" : "Désactivé"}
+                  </span>
+                </td>
                 <td>
                   {student.active && (
                     <button onClick={() => handleDeactivate(student.id)}>

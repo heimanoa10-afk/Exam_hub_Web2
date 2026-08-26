@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getExams, createExam, deleteExam, getCourses } from "../../services/api";
 import { Link } from "react-router-dom";
+import AdminNavbar from "../../components/AdminNavbar";
 
 export default function AdminExams() {
   const [exams, setExams] = useState([]);
@@ -65,8 +66,9 @@ export default function AdminExams() {
     }
   }
 
-  return (
+    return (
     <div>
+      <AdminNavbar />
       <h1>Gestion des examens</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}

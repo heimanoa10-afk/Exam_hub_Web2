@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getExam, getExamQuestions, createQuestion, deleteQuestion } from "../../services/api";
+import AdminNavbar from "../../components/AdminNavbar";
 
 export default function AdminExamQuestions() {
   const { id } = useParams();
@@ -93,8 +94,9 @@ export default function AdminExamQuestions() {
 
   const isLocked = exam?.hasAttempts;
 
-  return (
+    return (
     <div>
+      <AdminNavbar />
       <h1>Questions de l'examen : {exam?.title}</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
