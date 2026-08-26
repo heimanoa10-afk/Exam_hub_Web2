@@ -32,4 +32,27 @@ export function login(email, password) {
     })
 }
 
+export function getStudents() {
+  return apiFetch("/students");
+}
+
+export function createStudent(studentData) {
+  return apiFetch("/students", {
+    method: "POST",
+    body: JSON.stringify(studentData),
+  });
+}
+
+export function updateStudent(id, studentData) {
+  return apiFetch(`/students/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(studentData),
+  });
+}
+
+export function deactivateStudent(id) {
+  return apiFetch(`/students/${id}`, {
+    method: "DELETE",
+  });
+}
 export default apiFetch;
