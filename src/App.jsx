@@ -6,6 +6,7 @@ import AdminStudents from "./pages/admin/AdminStudents";
 import AdminCourses from "./pages/admin/AdminCourses";
 import AdminExams from "./pages/admin/AdminExams";
 import AdminExamQuestions from "./pages/admin/AdminExamQuestions";
+import AdminExamResults from "./pages/admin/AdminExamResults";
 
 function App() {
   return (
@@ -48,6 +49,14 @@ function App() {
         element={
           <ProtectedRoute allowedRole="admin">
             <AdminExamQuestions />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/exams/:id/results"
+        element={
+          <ProtectedRoute allowedRole="admin">
+            <AdminExamResults />
           </ProtectedRoute>
         }
       />

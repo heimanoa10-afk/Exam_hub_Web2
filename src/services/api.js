@@ -131,4 +131,8 @@ export function deleteQuestion(id) {
     method: "DELETE",
   });
 }
+
+export function getExamResults(examId) {
+  return apiFetch(`/exams/${examId}/results`);
+}
 export default apiFetch;
