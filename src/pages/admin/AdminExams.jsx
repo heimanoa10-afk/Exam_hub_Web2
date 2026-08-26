@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getExams, createExam, deleteExam, getCourses } from "../../services/api";
+import { Link } from "react-router-dom";
 
 export default function AdminExams() {
   const [exams, setExams] = useState([]);
@@ -137,12 +138,16 @@ export default function AdminExams() {
           </thead>
           <tbody>
             {exams.map((exam) => (
-              <tr key={exam.id}>
+            <tr key={exam.id}>
                 <td>{exam.title}</td>
                 <td>{exam.courseId}</td>
                 <td>{exam.startAt}</td>
                 <td>{exam.endAt}</td>
                 <td>
+                  <Link to={`/admin/exams/${exam.id}/questions`}>Questions</Link>
+                  {" | "}
+                  <Link to={`/admin/exams/${exam.id}/results`}>Résultats</Link>
+                  {" | "}
                   <button onClick={() => handleDelete(exam.id)}>
                     Supprimer
                   </button>
