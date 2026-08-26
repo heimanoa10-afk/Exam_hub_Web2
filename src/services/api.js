@@ -79,4 +79,32 @@ export function deleteCourse(id) {
     method: "DELETE",
   });
 }
+
+export function getExams() {
+  return apiFetch("/exams");
+}
+
+export function getExam(id) {
+  return apiFetch(`/exams/${id}`);
+}
+
+export function createExam(examData) {
+  return apiFetch("/exams", {
+    method: "POST",
+    body: JSON.stringify(examData),
+  });
+}
+
+export function updateExam(id, examData) {
+  return apiFetch(`/exams/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(examData),
+  });
+}
+
+export function deleteExam(id) {
+  return apiFetch(`/exams/${id}`, {
+    method: "DELETE",
+  });
+}
 export default apiFetch;
