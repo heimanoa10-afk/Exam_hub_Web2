@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import ProtectedRoute from "./router/ProtectedRoute";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         path="/admin"
         element={
           <ProtectedRoute allowedRole="admin">
-            <h1>Tableau de bord admin (à construire)</h1>
+            <AdminDashboard />
           </ProtectedRoute>
         }
       />
